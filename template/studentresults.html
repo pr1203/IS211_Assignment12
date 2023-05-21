@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Quiz Results</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+h2 {text-align: center; font-family:"Copperplate Gothic Bold"}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th {
+  text-align: center;
+  padding: 8px;
+  background-color: #045FAA;
+  color: white;
+}
+
+td {
+  text-align: center;
+  padding: 8px;
+}
+</style>
+</head>
+<body>
+
+<h2>Quiz Results</h2>
+
+
+<table>
+  <tr>
+    <th>Quiz ID</th>
+    <th>Subject</th>
+    <th>Quiz Date</th>
+    <th>Result</th>
+  </tr>
+
+        {% for item in student_results %}
+        <tr>
+            <td>{{item.quiz_id}}</td>
+            <td>{{item.subject}}</td>
+            <td>{{item.quiz_date}}</td>
+            <td>{{item.result}}</td>
+        </tr>
+        {% endfor %}
+</table>
+
+</body>
+</html>
