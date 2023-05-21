@@ -6,7 +6,7 @@ from flask import session
 from flask import g
 import sqlite3 as lite
 
-database = 'hw12.db'
+database = 'hw13.db'
 username = 'admin'
 password = 'password'
 
