@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>Add Quiz Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+h2 {text-align: center; font-family:"Copperplate Gothic Bold"}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type=text], input[type=number], input[type=date] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #045FAA;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.container {
+  padding: 16px;
+}
+
+</style>
+</head>
+<body>
+
+<h2>Add Quiz Result</h2>
+
+<form action="/results/add" method="post">
+  <div class="container">
+    <label><b>Please Choose Student:</b></label>
+    <br>
+    <select name="add_student">
+    <option value="">Choose a student</option>
+    {% for student in students %}
+        <option value="{{ student.id }}" name="student.id">{{ student.first_name, student.last_name }}</option>
+    {% endfor %}
+    </select>
+    <br>
+
+    <label><b>Please Choose Quiz Subject:</b></label>
+    <br>
+    <select name="add_quiz", method="POST">
+    {% for quiz in quizzes %}
+        <option value="{{ quiz.id }}" name="quiz.id">{{ quiz.subject }}</option>
+    {% endfor %}
+    </select>
+    <br>
+
+    <label><b>Please Enter Result:</b></label>
+    <input type="number" name="result"/>
+
+    <button type="submit">Add Student's Quiz Result</button>
+
+  </div>
+
+</form>
+
+</body>
+</html>
